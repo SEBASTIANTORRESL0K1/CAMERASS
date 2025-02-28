@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Cámaras</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-box">
+            <img  alt="Naranjal">
+            <p>Naranjal</p>
+        </div>
+    </div>
+    <script>
+        async function fetchImage() {
+            try {
+                const response = await fetch('http://127.0.0.1:5001/imagen_reciente');
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        }
+
+        setInterval(fetchImage, 10000); // Fetch every 10 seconds
+    </script>
+</body>
+</html>
